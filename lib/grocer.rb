@@ -20,12 +20,11 @@ def consolidate_cart(cart)
   
   consolidated = []
   cart.each do |each_item|
-    if find_item_by_name_in_collection(each_item, consolidated)
+    if find_item_by_name_in_collection(each_item[:item], consolidated)
       each_item[:count] += 1 
     else
       each_item[:count] = 1
       consolidated.push(each_item)
-      binding.pry
     end 
   end 
   consolidated
